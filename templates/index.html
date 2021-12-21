@@ -7,15 +7,15 @@
 <body>
 <h1>My Library</h1>
     <ul>
+        {% for book in all_books %}
         <li>
             {% if books_list == [] %}
                 Library is empty
             {% else %}
-                {% for book in books_list %}
-                {{book.title}} - {{book.author}} - {{book.rating}}
-                {% endfor %}
+                    {{book.title}} - {{book.author}} - {{book.rating}} <a href="{{ url_for('edit', id=book.id) }}">Edit Rating</a>
             {% endif %}
         </li>
+        {% endfor %}
     </ul>
     
 <a href="{{ url_for('add') }}">Add New Book</a>
